@@ -3,7 +3,6 @@ package org.leon;
 import org.leon.aware.ApplicationContextAwareExample;
 import org.leon.aware.BeanFactoryAwareExample;
 import org.leon.aware.BeanNameAwareExample;
-import org.leon.bpp.AnotherExampleBean;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -16,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @Description:
  */
 @Configuration
-@ComponentScan(basePackages = "org.leon.bpp")
+@ComponentScan(basePackages = "org.leon")
 public class SpringApplication {
     public static void main(String[] args) {
         //不同的容器会产生不同的bean，Singleton只是说明同一个容器只会创建一个实例
@@ -37,7 +36,7 @@ public class SpringApplication {
         System.out.println(A);*/
 
 
-        AnotherExampleBean exampleBean=context.getBean("anotherExampleBean",AnotherExampleBean.class);
+//        AnotherExampleBean exampleBean=context.getBean("anotherExampleBean",AnotherExampleBean.class);
 
     }
 }
