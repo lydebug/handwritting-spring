@@ -6,9 +6,6 @@ package org.leon.util;
  * @Description:
  */
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -17,7 +14,6 @@ import java.lang.reflect.Method;
  */
 public final class ReflectionUtil {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ReflectionUtil.class);
 
     /**
      * 创建实例
@@ -27,7 +23,6 @@ public final class ReflectionUtil {
         try {
             instance = cls.newInstance();
         } catch (Exception e) {
-            LOGGER.error("new instance failure", e);
             throw new RuntimeException(e);
         }
         return instance;
@@ -50,7 +45,6 @@ public final class ReflectionUtil {
             method.setAccessible(true);
             result = method.invoke(obj, args);
         } catch (Exception e) {
-            LOGGER.error("invoke method failure", e);
             throw new RuntimeException(e);
         }
         return result;
@@ -64,7 +58,6 @@ public final class ReflectionUtil {
             field.setAccessible(true); //去除私有权限
             field.set(obj, value);
         } catch (Exception e) {
-            LOGGER.error("set field failure", e);
             throw new RuntimeException(e);
         }
     }

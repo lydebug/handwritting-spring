@@ -1,7 +1,5 @@
 package org.leon.util;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,7 +13,6 @@ import java.util.Properties;
  */
 public final class PropsUtil {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(PropsUtil.class);
 
     /**
      * 加载属性文件
@@ -31,13 +28,11 @@ public final class PropsUtil {
             props = new Properties();
             props.load(is);
         } catch (IOException e) {
-            LOGGER.error("load properties file failure", e);
         } finally {
             if (is != null) {
                 try {
                     is.close();
                 } catch (IOException e) {
-                    LOGGER.error("close input stream failure", e);
                 }
             }
         }
