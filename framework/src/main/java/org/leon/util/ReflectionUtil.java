@@ -21,7 +21,7 @@ public final class ReflectionUtil {
     public static Object newInstance(Class<?> cls) {
         Object instance;
         try {
-            instance = cls.newInstance();
+            instance = cls.getConstructor().newInstance();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
